@@ -24,7 +24,7 @@
                 <h3>Telefonkönyv kezelő program</h3>
                 <p class="blue-text">Ezzel a weboldallal felhasználókat tud létrehozni, szerkeszteni és törölni <br> illetve különbőző adatokat hozzájuk adni.</p>
                 <div class="card">
-                    <h5 class="text-center mb-4">Létrehozás, szerkesztés, törlés</h5>
+                    <h5 class="text-center mb-4">Létrehozás, szerkesztés, hozzáadás, törlés</h5>
                     <h6 class="text-center mb-4">Létrehozás</h6>
                     <livewire:createUser>
                         <br>
