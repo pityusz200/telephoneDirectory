@@ -25,7 +25,14 @@
                 <p class="blue-text">Ezzel a weboldallal felhasználókat tud létrehozni, szerkeszteni és törölni <br> illetve különbőző adatokat hozzájuk adni.</p>
                 <div class="card">
                     <h5 class="text-center mb-4">Létrehozás, szerkesztés, törlés</h5>
+                    <h6 class="text-center mb-4">Létrehozás</h6>
                     <livewire:createUser>
+                        <br>
+                    <h6 class="text-center mb-4">Szerkesztés</h6>
+                    <livewire:updateUser>
+                        <br>
+                    <h6 class="text-center mb-4">Törlés</h6>
+                    <livewire:deletUser>
                 </div>
             </div>
         </div>

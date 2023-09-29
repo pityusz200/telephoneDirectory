@@ -1,8 +1,4 @@
 <div>
-    @if(!empty($successMsg))
-        <div class="alert alert-success"> {{ $successMsg }}</div>
-    @endif
-
     <form wire:submit.prevent="save">
         <label>
             Vezetéknév:
@@ -51,7 +47,7 @@
         <div>
             @error('mailing_address') <span class="error">{{ $message }}</span> @enderror
         </div>
-
+        <br>
         <button>Léterhozás</button>
     </form>
 </div>

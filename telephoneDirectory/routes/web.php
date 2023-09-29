@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/user-success-create', function () {
-    return view('livewire.user-success-create');
+Route::get('/user-success', function () {
+    return view('livewire.user-success');
 });
+
+Route::get('/user-failed', function () {
+    return view('livewire.user-failed');
+});
+
+

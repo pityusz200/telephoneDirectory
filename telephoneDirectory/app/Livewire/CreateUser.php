@@ -25,7 +25,7 @@ class CreateUser extends Component
 //        $this->validate();
         $user = new User($this->form);
 
-        $user->save();
+        $result = $user->save();
         $id = $user->getAttribute('id');
         $lastEmailId = DB::table('emails')->pluck('id');
         $lastPhoneNumberId = DB::table('phone_numbers')->pluck('id');
@@ -43,7 +43,11 @@ class CreateUser extends Component
                 ['email' => $this->form['email'], 'user_id' => $id, 'email_id' => $lastEmailId + 1]),
                 ['user_id' => $id, 'email_id' => $lastEmailId + 1]);
 
-        return redirect()->to('/user-success-create');
+        if ($result){
+            return redirect()->to('/user-success?type=create');
+        }
+
+        return redirect()->to('/user-failed?type=create-fail');
     }
 
     public function render()
