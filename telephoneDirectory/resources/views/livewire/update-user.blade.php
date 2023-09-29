@@ -3,7 +3,7 @@
         Kit szeretne szerkeszteni?
         Adja meg az email címét és írja be a frissíteni kívánt adatot:
         <label>
-            <input type="text" wire:model="form.email" placeholder="Keresett email cím">
+            <input type="email" wire:model="form.email" placeholder="Keresett email cím">
         </label>
         <div>
             @error('email') <span class="error">{{ $message }}</span> @enderror

@@ -18,7 +18,7 @@
 
         <label>
             Email cím:
-            <input type="text" wire:model="form.email"  placeholder="Email cím">
+            <input type="email" wire:model="form.email"  placeholder="Email cím">
         </label>
         <div>
             @error('email') <span class="error">{{ $message }}</span> @enderror
@@ -26,7 +26,7 @@
 
         <label>
             Telefonszám:
-            <input type="text" wire:model="form.phone_number"  placeholder="Telefonszám">
+            <input type="number" wire:model="form.phone_number"  placeholder="Telefonszám">
         </label>
         <div>
             @error('phone_number') <span class="error">{{ $message }}</span> @enderror
@@ -54,7 +54,7 @@
     <form wire:submit.prevent="addEmail">
         <label>
             Email cím hozzáadása:<br><br>
-            <input type="text" wire:model="form.plusEmail"  placeholder="Plusz email cím">
+            <input type="email" wire:model="form.plusEmail"  placeholder="Plusz email cím">
         </label>
         <div>
             @error('plusEmail') <span class="error">{{ $message }}</span> @enderror
@@ -81,7 +81,7 @@
     <form wire:submit.prevent="addPhoneNumber">
         <label>
             Telefonszám hozzáadása:<br><br>
-            <input type="text" wire:model="form.plusPhoneNumber"  placeholder="Plusz telefonszám">
+            <input type="number" wire:model="form.plusPhoneNumber"  placeholder="Plusz telefonszám">
         </label>
         <div>
             @error('plusPhoneNumber') <span class="error">{{ $message }}</span> @enderror
@@ -109,7 +109,7 @@
         Adj hozzá fotót is egy email címmel <br><br>
         <label>
             Email cím:
-            <input type="text" wire:model="form.emailPhoto"  placeholder="Email cím">
+            <input type="email" wire:model="form.emailPhoto"  placeholder="Email cím">
         </label>
         <div>
             @error('emailPhoto') <span class="error">{{ $message }}</span> @enderror

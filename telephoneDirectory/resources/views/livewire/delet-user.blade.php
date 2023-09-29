@@ -3,7 +3,7 @@
         <label>
             Kit szeretne törölni?
             Adja meg az email címét és törölje:
-            <input type="text" wire:model="form.email" placeholder="Email cím">
+            <input type="email" wire:model="form.email" placeholder="Email cím">
         </label>
         <div>
             @error('email') <span class="error">{{ $message }}</span> @enderror
