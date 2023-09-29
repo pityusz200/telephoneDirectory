@@ -48,6 +48,27 @@
             @error('mailing_address') <span class="error">{{ $message }}</span> @enderror
         </div>
         <br>
-        <button>Léterhozás</button>
+        <button>Léterhozás</button><br><br>
+    </form>
+
+    <form wire:submit.prevent="addPhoto">
+        Adj hozzá fotót is egy email címmel <br>
+        <label>
+            Email cím:
+            <input type="text" wire:model="form.emailPhoto"  placeholder="Email cím">
+        </label>
+        <div>
+            @error('emailPhoto') <span class="error">{{ $message }}</span> @enderror
+        </div>
+
+        <label>
+            Fotó:
+            <input type="file" wire:model="form.photo"  placeholder="Fotó">
+        </label>
+        <div>
+            @error('photo') <span class="error">{{ $message }}</span> @enderror
+        </div>
+        <br>
+        <button>Fotó feltöltése</button><br><br>
     </form>
 </div>

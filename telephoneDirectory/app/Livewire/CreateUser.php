@@ -6,14 +6,17 @@ use App\Models\Email;
 use App\Models\Email_and_User_Relation;
 use App\Models\PhoneNumber;
 use App\Models\PhoneNumber_and_User_Relation;
+use App\Models\Photo;
 use App\Models\User;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class CreateUser extends Component
 {
+    use WithFileUploads;
     public $form = array();
 
 //    protected $rules = [
@@ -48,6 +51,25 @@ class CreateUser extends Component
         }
 
         return redirect()->to('/user-failed?type=create-fail');
+    }
+
+    public function addPhoto(){
+        $this->validate([
+            'form.photo' => 'image|max:1024', // 1MB Max
+        ]);
+
+        $path = $this->form['photo']->store('photos');
+
+        $user = Email::where('email', '=', $this->form['emailPhoto'])->first();
+
+        $photo = new Photo(['user_id' => $user->getAttribute('id'), 'path' => $path]);
+        $photo->save();
+
+        if ($path){
+            return redirect()->to('/user-success?type=upload');
+        }
+
+        return redirect()->to('/user-failed?type=upload-fail');
     }
 
     public function render()

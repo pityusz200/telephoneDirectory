@@ -15,16 +15,19 @@
             @break
 
         @case('create-fail')
-                <div class="alert alert-success"> Sikertelen a felhasználó létrehozás!</div>
+                <div class="alert alert-danger"> Sikertelen a felhasználó létrehozás!</div>
             @break
         @case('update-fail')
-                <div class="alert alert-success"> Sikertelen frissítés!</div>
+                <div class="alert alert-danger"> Sikertelen frissítés!</div>
             @break
         @case('addEmail-fail')
-                <div class="alert alert-success"> Sikertelen hozzáadás!</div>
+                <div class="alert alert-danger"> Sikertelen hozzáadás!</div>
             @break
         @case('delete-fail')
-                <div class="alert alert-success"> Sikertelen felhasználó törlés!</div>
+                <div class="alert alert-danger"> Sikertelen felhasználó törlés!</div>
+            @break
+        @case('upload-fail')
+            <div class="alert alert-danger"> Sikertelen kép feltöltés!</div>
             @break
     @endswitch
 </div>

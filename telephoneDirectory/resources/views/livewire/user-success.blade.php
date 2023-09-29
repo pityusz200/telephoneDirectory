@@ -12,6 +12,9 @@
         @case('delete')
             <div class="alert alert-success"> Sikeresen törölve a felhasználó!</div>
             @break
+        @case('upload')
+            <div class="alert alert-success"> Sikeres fájl feltöltés!</div>
+            @break
     @endswitch
 </div>
 

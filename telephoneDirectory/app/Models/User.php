@@ -13,6 +13,7 @@ class User extends Model
     public $phone_number;
     public $address;
     public $mailing_address;
+    public $path;
 
     protected $table = 'users';
 
@@ -25,8 +26,9 @@ class User extends Model
     ];
 
     protected $relations = [
-        'phone_number_id',
-        'email_id',
+        'phone_number',
+        'email',
+        'path',
     ];
     public function phoneNumber()
     {
@@ -36,5 +38,10 @@ class User extends Model
     public function email()
     {
         return $this->belongsToMany('App\Models\Email', 'App\Models\Email_and_User_Relation','user_id');
+    }
+
+    public function photo()
+    {
+        return $this->belongsTo('App\Models\Photo', 'id', 'photo_id');
     }
 }
