@@ -19,5 +19,5 @@
 </div>
 
 <form action="/">
-    <input type="submit" name="Kezdőoldal">
+    <input type="submit" value="Kezdőoldal">
 </form>

@@ -37,7 +37,7 @@ class User extends Model
 
     public function email()
     {
-        return $this->belongsToMany('App\Models\Email', 'App\Models\Email_and_User_Relation','user_id');
+        return $this->belongsToMany('App\Models\Email', 'App\Models\Email_and_User_Relation','user_id', 'email_id');
     }
 
     public function photo()

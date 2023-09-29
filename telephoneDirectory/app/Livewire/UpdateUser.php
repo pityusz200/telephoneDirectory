@@ -45,36 +45,6 @@ class UpdateUser extends Component
         return redirect()->to('/user-failed?type=update-fail');
     }
 
-    public function addEmail()
-    {
-//        $this->validate();
-        $emailId = Email::where('email', '=', $this->form['plusEmail'])->first();
-
-        if ($emailId != null){
-            return redirect()->to('/user-failed?type=found_email-fail');
-        }
-
-        $user = User::where('fname', '=', $this->form['plusFname'])->where('lname', '=', $this->form['plusLname'])->first();
-
-        if ($user == null){
-            return redirect()->to('/user-failed?type=not_found_user');
-        }
-
-        $user_id = $user->getAttribute('id');
-        $lastEmailId = DB::table('emails')->pluck('id');
-        $lastEmailId = $lastEmailId != null ? $lastEmailId->last() : 0;
-
-        $result = $user->email()->save(
-            new Email(
-                ['email' => $this->form['plusEmail'], 'user_id' => $user_id, 'email_id' => $lastEmailId + 1]),
-                ['user_id' => $user_id, 'email_id' => $lastEmailId + 1]);
-
-        if ($result){
-            return redirect()->to('/user-success?type=update');
-        }
-
-        return redirect()->to('/user-failed?type=update-fail');
-    }
     public function render()
     {
         return view('livewire.update-user');

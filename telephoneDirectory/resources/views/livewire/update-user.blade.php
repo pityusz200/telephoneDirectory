@@ -27,31 +27,4 @@
         <br>
         <button>Szerkesztés</button>
     </form>
-    <br>
-    <form wire:submit.prevent="addEmail">
-        <label>
-            Email cím hozzáadása:
-            <input type="text" wire:model="form.plusEmail"  placeholder="Plusz email cím">
-        </label>
-        <div>
-            @error('plusEmail') <span class="error">{{ $message }}</span> @enderror
-        </div>
-        Kihez adjuk hozzá?:<br>
-        <label>
-            Vezetéknév:
-            <input type="text" wire:model="form.plusFname"  placeholder="Vezetéknév">
-        </label>
-        <div>
-            @error('plusFname') <span class="error">{{ $message }}</span> @enderror
-        </div>
-        <label>
-            Keresztnév:
-            <input type="text" wire:model="form.plusLname"  placeholder="Keresztnév">
-        </label>
-        <div>
-            @error('plusLname') <span class="error">{{ $message }}</span> @enderror
-        </div>
-        <br>
-        <button>Hozzáad</button>
-    </form>
 </div>

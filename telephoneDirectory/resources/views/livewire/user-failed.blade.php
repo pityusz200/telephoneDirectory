@@ -6,9 +6,13 @@
         @case('found_user-fail')
                 <div class="alert alert-danger"> Már létezik ilyen felhasználó!</div>
             @break
+        @case('found_phoneNumber-fail')
+                {{-- Duplikált telefonszámot akar megadni de ezt ne mondjuk el biztonsági szempontok miatt--}}
+                <div class="alert alert-danger"> Hiba történt!!</div>
+            @break
         @case('found_email-fail')
-            {{-- Duplikált emailt akar megadni de ezt ne mondjuk el biztonsági szempontok miatt--}}
-            <div class="alert alert-danger"> Hiba történt!</div>
+                {{-- Duplikált emailt akar megadni de ezt ne mondjuk el biztonsági szempontok miatt--}}
+                <div class="alert alert-danger"> Hiba történt!</div>
             @break
         @case('error')
                 <div class="alert alert-danger"> Általános hiba történt! Próbálja meg később!</div>
@@ -33,5 +37,5 @@
 </div>
 
 <form action="/">
-    <input type="submit" name="Kezdőoldal">
+    <input type="submit" value="Kezdőoldal">
 </form>

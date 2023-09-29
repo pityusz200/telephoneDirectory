@@ -6,6 +6,7 @@ use App\Models\Email;
 use App\Models\Email_and_User_Relation;
 use App\Models\PhoneNumber;
 use App\Models\PhoneNumber_and_User_Relation;
+use App\Models\Photo;
 use App\Models\User;
 use Livewire\Component;
 
@@ -21,28 +22,38 @@ class DeletUser extends Component
         }
         $emailId = $emailId->getAttribute('id');
 
-        $emailAndUserRelation = Email_and_User_Relation::where('email_id', '=' ,$emailId)->get();
-        if ($emailAndUserRelation == null){
+        $emailAndUserRelation = Email_and_User_Relation::where('email_id', '=' , $emailId)->get();
+        if ($emailAndUserRelation == null || $emailAndUserRelation->first() == null){
             return redirect()->to('/user-failed?type=not_found_user');
         }
 
         $user_id = $emailAndUserRelation->first()->getAttribute('user_id');
 
-        foreach ($emailAndUserRelation as $item) {
-            $id = $item->getAttribute('id');
-            Email_and_User_Relation::destroy($id);
-            Email::destroy($id);
+        $emailAndUserRelation = Email_and_User_Relation::where('user_id', '=' ,$user_id)->get();
+
+        if ($emailAndUserRelation != null || $emailAndUserRelation->first() != null){
+            foreach ($emailAndUserRelation as $item) {
+                $id = $item->getAttribute('id');
+                Email_and_User_Relation::destroy($id);
+                Email::destroy($id);
+            }
         }
 
         $phoneNumberAndUserRelation = PhoneNumber_and_User_Relation::where('user_id', '=' , $user_id)->get();
-        if ($phoneNumberAndUserRelation == null){
-            return redirect()->to('/user-failed?type=not_found_user');
+        if ($phoneNumberAndUserRelation != null || $phoneNumberAndUserRelation->first() != null){
+            foreach ($phoneNumberAndUserRelation as $item) {
+                $id = $item->getAttribute('id');
+                PhoneNumber_and_User_Relation::destroy($id);
+                PhoneNumber::destroy($id);
+            }
         }
 
-        foreach ($phoneNumberAndUserRelation as $item) {
-            $id = $item->getAttribute('id');
-            PhoneNumber_and_User_Relation::destroy($id);
-            PhoneNumber::destroy($id);
+        $photos = Photo::where('user_id', '=' , $user_id)->get();
+
+        if ($photos != null || $photos->first() != null){
+            foreach ($photos as $item) {
+                Photo::destroy($item->getAttribute('id'));
+            }
         }
 
         $user = User::where('id', '=', $user_id)->first();

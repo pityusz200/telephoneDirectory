@@ -51,8 +51,62 @@
         <button>Léterhozás</button><br><br>
     </form>
 
+    <form wire:submit.prevent="addEmail">
+        <label>
+            Email cím hozzáadása:<br><br>
+            <input type="text" wire:model="form.plusEmail"  placeholder="Plusz email cím">
+        </label>
+        <div>
+            @error('plusEmail') <span class="error">{{ $message }}</span> @enderror
+        </div>
+        Kihez adjuk hozzá?:<br>
+        <label>
+            Vezetéknév:
+            <input type="text" wire:model="form.plusFname"  placeholder="Vezetéknév">
+        </label>
+        <div>
+            @error('plusFname') <span class="error">{{ $message }}</span> @enderror
+        </div>
+        <label>
+            Keresztnév:
+            <input type="text" wire:model="form.plusLname"  placeholder="Keresztnév">
+        </label>
+        <div>
+            @error('plusLname') <span class="error">{{ $message }}</span> @enderror
+        </div>
+        <br>
+        <button>Hozzáad</button>
+    </form>
+    <br>
+    <form wire:submit.prevent="addPhoneNumber">
+        <label>
+            Telefonszám hozzáadása:<br><br>
+            <input type="text" wire:model="form.plusPhoneNumber"  placeholder="Plusz telefonszám">
+        </label>
+        <div>
+            @error('plusPhoneNumber') <span class="error">{{ $message }}</span> @enderror
+        </div>
+        Kihez adjuk hozzá?:<br>
+        <label>
+            Vezetéknév:
+            <input type="text" wire:model="form.plusFnameP"  placeholder="Vezetéknév">
+        </label>
+        <div>
+            @error('plusFnameP') <span class="error">{{ $message }}</span> @enderror
+        </div>
+        <label>
+            Keresztnév:
+            <input type="text" wire:model="form.plusLnameP"  placeholder="Keresztnév">
+        </label>
+        <div>
+            @error('plusLnameP') <span class="error">{{ $message }}</span> @enderror
+        </div>
+        <br>
+        <button>Hozzáad</button>
+    </form>
+    <br>
     <form wire:submit.prevent="addPhoto">
-        Adj hozzá fotót is egy email címmel <br>
+        Adj hozzá fotót is egy email címmel <br><br>
         <label>
             Email cím:
             <input type="text" wire:model="form.emailPhoto"  placeholder="Email cím">
